@@ -129,5 +129,25 @@ namespace ConsoleApp10
                 Console.Read();
 
         }
+        
+        static int safeIntInput(String message)
+        {
+            int Number = 0;
+            bool isRunning = true;
+            while (isRunning == true)
+            {
+                Console.Write(message);
+                string stringToTest = Console.ReadLine();
+                bool res = int.TryParse(stringToTest, out Number);
+                if (res == false) {
+                    Console.WriteLine("");
+                    Console.Write("Invalid Input, please try again: ");
+                } else {
+                    isRunning = false;
+                }
+            }
+            return Number;
+        }
+        
     }
 }
